@@ -4,6 +4,7 @@
 //  States READ and WRITE here — no direct component coupling.
 //  This is the "Blackboard" pattern, common in game AI.
 // ============================================================
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,16 +12,16 @@ using UnityEngine.AI;
 public class EnemyContext
 {
     // ── Component References ──────────────────────────────────
-    public Transform        Self;
-    public NavMeshAgent     Agent;
-    public Animator         Animator;           // optional
-    public EnemyAI          AI;
-    public EnemyHealth      Health;
-    public EnemyLearningModule Learning;
+    [NonSerialized] public Transform        Self;
+    [NonSerialized] public NavMeshAgent     Agent;
+    [NonSerialized] public Animator         Animator;           // optional
+    [NonSerialized] public EnemyAI          AI;
+    [NonSerialized] public EnemyHealth      Health;
+    [NonSerialized] public EnemyLearningModule Learning;
 
     // ── Target ───────────────────────────────────────────────
-    public Transform        PlayerTransform;
-    public PlayerHealth     PlayerHealth;
+    [NonSerialized] public Transform        PlayerTransform;
+    [NonSerialized] public PlayerHealth     PlayerHealth;
 
     // ── Tuning (set in Inspector via EnemyAI) ────────────────
     public float DetectRange        = 12f;
